@@ -1,6 +1,7 @@
 package JUnitTesting;
 import com.capg.junittesting.*;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.Assert;
 public class MoodAnalyserTest {
 	@Test
@@ -17,9 +18,10 @@ public class MoodAnalyserTest {
 		//String mood = moodAnalyser.analyseMood("This is Happy message");
 		Assert.assertEquals("HAPPY", moodAnalyser.analyseMood());
 	}
-	@Test(expected = NullPointerException.class)
-	public void givenMsg_When_Null_ShouldReturnNullPointerException() {
-		MoodAnalyser moodAnalyser = new MoodAnalyser(null);
-		 moodAnalyser.analyseMood();
+	@Test
+	public void givenMessage_WhenNull_ShouldReturnHappy() {
+			MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+			Assert.assertEquals("HAPPY", moodAnalyser.analyseMood());
+	
 	}
 }
